@@ -3,9 +3,10 @@ This file contains the controller that accepts command via HTTP
 and trigger business logic layer
 """
 
-import bll.sales_api as sales_api
 from flask import Flask, request
 from flask import typing as flask_typing
+
+from job1.bll.sales_api import save_sales_to_local_disk
 
 app = Flask(__name__)
 
@@ -34,7 +35,7 @@ def main() -> flask_typing.ResponseReturnValue:
     if not raw_dir:
         return {"message": "raw_dir parameter is required"}, 400
 
-    sales_api.save_sales_to_local_disk(date=date, raw_dir=raw_dir)
+    save_sales_to_local_disk(date=date, raw_dir=raw_dir)
     return {"message": "Data retrieved successfully from API"}, 201
 
 

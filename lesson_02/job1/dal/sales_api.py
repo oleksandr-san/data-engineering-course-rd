@@ -2,9 +2,11 @@ from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Dict, List
 
 import requests
-from settings import AUTH_TOKEN
+
+from job1.settings import AUTH_TOKEN
 
 API_URL = "https://fake-api-vycpfa6oca-uc.a.run.app/"
+PAGES_COUNT = 4
 
 
 def get_sales(date: str) -> List[Dict[str, Any]]:
@@ -21,7 +23,7 @@ def get_sales(date: str) -> List[Dict[str, Any]]:
         session.headers.update({"Authorization": AUTH_TOKEN})
         futures = []
         with ThreadPoolExecutor() as executor:
-            for page in range(1, 4):
+            for page in range(1, PAGES_COUNT + 1):
                 f = executor.submit(
                     session.get,
                     url=API_URL + "sales",
