@@ -5,9 +5,10 @@ and trigger business logic layer
 
 import logging
 
-import bll.stg as stg
 from flask import Flask, request
 from flask import typing as flask_typing
+
+from job2.bll.stg import process_stg
 
 logging.basicConfig(level=logging.INFO)
 
@@ -38,7 +39,7 @@ def main() -> flask_typing.ResponseReturnValue:
     if not raw_dir:
         return {"message": "raw_dir parameter is required"}, 400
 
-    stg.process_stg(raw_dir=raw_dir, stg_dir=stg_dir)
+    process_stg(raw_dir=raw_dir, stg_dir=stg_dir)
     return {"message": "Data processed successfully"}, 201
 
 

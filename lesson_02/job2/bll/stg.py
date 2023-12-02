@@ -1,7 +1,7 @@
 import logging
 import os
 
-from dal import local_disk
+from job2.dal import local_disk
 
 
 def process_stg(stg_dir: str, raw_dir: str) -> None:

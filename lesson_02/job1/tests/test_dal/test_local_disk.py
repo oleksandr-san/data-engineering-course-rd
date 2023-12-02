@@ -21,10 +21,10 @@ class SaveToDiskTestCase(TestCase):
             data = [{"foo": "bar"}]
             path = dir + "/raw/data.json"
 
-            assert os.path.exists(path) == False
+            assert not os.path.exists(path)
             save_to_disk(data, path)
 
-            assert os.path.exists(path) == True
+            assert os.path.exists(path)
             with open(path) as fp:
                 import json
 
