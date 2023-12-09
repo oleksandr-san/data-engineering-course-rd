@@ -5,7 +5,6 @@ and trigger business logic layer
 
 from flask import Flask, request
 from flask import typing as flask_typing
-
 from job1.bll.sales_api import save_sales_to_local_disk
 
 app = Flask(__name__)

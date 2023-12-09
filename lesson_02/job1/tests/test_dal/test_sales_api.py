@@ -4,7 +4,6 @@ Tests sales_api.py module.
 from unittest import TestCase, mock
 
 import requests_mock
-
 from job1.dal.sales_api import API_URL, PAGES_COUNT, get_sales
 
 

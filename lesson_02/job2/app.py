@@ -7,7 +7,6 @@ import logging
 
 from flask import Flask, request
 from flask import typing as flask_typing
-
 from job2.bll.stg import process_stg
 
 logging.basicConfig(level=logging.INFO)

@@ -1,8 +1,8 @@
+import logging
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Dict, List
 
 import requests
-
 from job1.settings import AUTH_TOKEN
 
 API_URL = "https://fake-api-vycpfa6oca-uc.a.run.app/"
@@ -21,7 +21,7 @@ def get_sales(date: str) -> List[Dict[str, Any]]:
 
     with requests.Session() as session:
         session.headers.update({"Authorization": AUTH_TOKEN})
-        futures = []
+        futures = {}
         with ThreadPoolExecutor() as executor:
             for page in range(1, PAGES_COUNT + 1):
                 f = executor.submit(
@@ -29,11 +29,15 @@ def get_sales(date: str) -> List[Dict[str, Any]]:
                     url=API_URL + "sales",
                     params={"date": date, "page": page},
                 )
-                futures.append(f)
+                futures[f] = page
 
         results = []
         for future in futures:
+            page = futures[future]
             response = future.result()
-            response.raise_for_status()
-            results.extend(response.json())
+            try:
+                response.raise_for_status()
+                results.extend(response.json())
+            except requests.RequestException as ex:
+                logging.error("Failed to get data for page %s: %s", page, ex)
         return results
