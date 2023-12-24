@@ -27,6 +27,7 @@ with DAG(
     schedule_interval="@daily",
     catchup=True,
     default_args=DEFAULT_ARGS,
+    max_active_runs=1,
 ) as dag:
 
     @task(task_id="extract_data_from_api")
