@@ -50,9 +50,10 @@ with DAG(
 
     BUCKET = 'de07-hw-bucket-oleksandrsan'
     dag_run_date = '{{ ds }}'
+    dag_run_date_path = "year={{ execution_date.strftime('%Y') }}/month={{ execution_date.strftime('%m') }}/day={{ execution_date.strftime('%d') }}"
     upload_to_gcs = LocalFilesystemToGCSOperator(
         src=f'{os.path.dirname(__file__)}/temp/stg/{dag_run_date}/sales_{dag_run_date}.avro',
-        dst=f'sales/avro/{dag_run_date}/sales_{dag_run_date}.avro',
+        dst=f'src1/sales/v1/{dag_run_date_path}/sales_{dag_run_date}.avro',
         bucket=BUCKET,
         task_id='upload_to_gcs',
         dag=dag,
