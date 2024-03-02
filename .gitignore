@@ -7,6 +7,7 @@ final_project/data
 final_project/cheat
 hw_good_solutions/
 temp/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
