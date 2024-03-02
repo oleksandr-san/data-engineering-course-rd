@@ -3,7 +3,10 @@
 lesson_10/dags/temp
 lesson_13
 lesson_14/data
-
+final_project/data
+final_project/cheat
+hw_good_solutions/
+temp/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
