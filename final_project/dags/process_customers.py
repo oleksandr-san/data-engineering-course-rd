@@ -7,8 +7,8 @@ from table_defs.customers_csv import customers_csv
 
 DEFAULT_ARGS = {
     **DEFAULT_DAG_ARGS,
-    'start_date': datetime(2022, 7, 31),
-    'end_date': datetime(2022, 8, 5)
+    "start_date": datetime(2022, 7, 31),
+    "end_date": datetime(2022, 8, 5),
 }
 
 

@@ -1,15 +1,10 @@
 from datetime import datetime
+
 from airflow import DAG
 from airflow.providers.google.cloud.operators.bigquery import (
     BigQueryCreateEmptyDatasetOperator,
 )
-from common import (
-    DEFAULT_DAG_ARGS,
-    DS_BRONZE,
-    DS_GOLD,
-    DS_LOCATION,
-    DS_SILVER,
-)
+from common import DEFAULT_DAG_ARGS, DS_BRONZE, DS_GOLD, DS_LOCATION, DS_SILVER
 
 DEFAULT_ARGS = {
     **DEFAULT_DAG_ARGS,

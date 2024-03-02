@@ -2,36 +2,12 @@ customers_csv = {
     "autodetect": False,
     "schema": {
         "fields": [
-            {
-                "name": "Id",
-                "type": "STRING",
-                "mode": "REQUIRED"
-            },
-            {
-                "name": "FirstName",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "LastName",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "Email",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
-            {
-                "name": "RegistrationDate",
-                "type": "STRING",
-                "mode": "REQUIRED"
-            },
-            {
-                "name": "State",
-                "type": "STRING",
-                "mode": "NULLABLE"
-            },
+            {"name": "Id", "type": "STRING", "mode": "REQUIRED"},
+            {"name": "FirstName", "type": "STRING", "mode": "NULLABLE"},
+            {"name": "LastName", "type": "STRING", "mode": "NULLABLE"},
+            {"name": "Email", "type": "STRING", "mode": "NULLABLE"},
+            {"name": "RegistrationDate", "type": "STRING", "mode": "REQUIRED"},
+            {"name": "State", "type": "STRING", "mode": "NULLABLE"},
         ]
     },
     "csvOptions": {
@@ -39,9 +15,9 @@ customers_csv = {
         "allowQuotedNewlines": False,
         "maxBadRecords": 0,
         "encoding": "UTF-8",
-        "quote": "\"",
+        "quote": '"',
         "fieldDelimiter": ",",
-        "skipLeadingRows": 1
+        "skipLeadingRows": 1,
     },
     "sourceFormat": "CSV",
     "sourceUris": [
@@ -51,5 +27,5 @@ customers_csv = {
             "/{{ dag_run.logical_date.strftime('%Y-%m-%-d') }}"
             "/*.csv"
         )
-    ]
+    ],
 }
