@@ -1,4 +1,4 @@
-CREATE OR REPLACE TABLE `{{ params.project_id }}.silver.sales` (
+CREATE TABLE IF NOT EXISTS `{{ params.project_id }}.silver.sales` (
     client_id INT,
     price INTEGER,
     product_name STRING,
