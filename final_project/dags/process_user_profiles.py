@@ -4,9 +4,8 @@ from airflow import DAG
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import (
     GCSToBigQueryOperator,
 )
-from common import DEFAULT_DAG_ARGS, DS_LOCATION, DS_SILVER, PROJECT_ID, RAW_BUCKET
-from table_defs.user_profiles import SCHEMA_FIELDS, FILE_PATH
-
+from common import DEFAULT_DAG_ARGS, DS_SILVER, PROJECT_ID, RAW_BUCKET
+from table_defs.user_profiles import FILE_PATH, SCHEMA_FIELDS
 
 with DAG(
     dag_id="process_user_profiles",
